@@ -1,0 +1,8 @@
+<h1>This is a FORM to ADD a ##NEW## booking</h1>
+
+<%= simple_form_for [@course, @booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :location %>
+  <%= f.input :status %>
+  <%= f.submit %>
+<% end %>
