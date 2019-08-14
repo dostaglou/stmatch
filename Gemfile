@@ -31,3 +31,6 @@ end
 
 # installed personally by DILLON
 gem 'devise'
+
+#faker for db:seeds
+gem 'faker'
