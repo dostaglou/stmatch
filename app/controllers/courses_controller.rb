@@ -38,6 +38,12 @@ class CoursesController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @course
+    @course.destroy
+    redirect_to courses_path
+  end
+
   private
 
   def set_course
