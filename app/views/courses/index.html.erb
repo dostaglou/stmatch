@@ -18,20 +18,3 @@
     <% end %>
   </div>
 </div>
-
-<h1>This is the courses index</h1>
-<ul>
-  <% @courses.each do |course| %>
-  <li><%= link_to "#{course.name}: #{course.description}", course_path(course) %></li>
-  <% end %>
-</ul>
-
-<br>
-<br>
-
-<%= link_to "add a course", new_course_path(@course) %>
-
-<br>
-<br>
-
-<%= link_to "Home Page", root_path %>

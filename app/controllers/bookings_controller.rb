@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
     before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,7 +7,7 @@ class BookingsController < ApplicationController
     @userbookings = @bookings.where(user: current_user)
     # I think we will need to limit this to current user someway
   end
-  
+
   def show
     authorize @booking
     @course = Course.find(@booking.course_id)
