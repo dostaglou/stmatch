@@ -1,12 +1,52 @@
-<h1>This is the bookings index</h1>
-<ul>
-  <%@userbookings.each do |booking|%>
-  <li>
-    <%= booking.user.first_name %>
-    <%= booking.user.last_name %>
-    <%= booking.course.name %>
-    <%= booking.date %>
-    <%= booking.location%>
-  </li>
+<div class="container bookings py-5">
+<h1>My Bookings</h1>
+
+<% if @userbookings.where(status: 'pending').present? %>
+  <h2 class="course-status"><i class="fas fa-circle indicator pending"></i>Pending courses</h2>
+<% end %>
+<div class="row py-4">
+  <%@userbookings.where(status: 'pending').each do |booking|%>
+    <div class="col-lg-4 col-md-12">
+      <div class="card-course">
+        <%= render 'shared/card', course: booking.course %>
+        <span class="card-date"><%= booking.date.strftime("%a %d %b")
+       %></span>
+        <%#= booking.location%>
+      </div>
+    </div>
   <%end%>
-</ul>
+</div>
+
+<% if @userbookings.where(status: 'booked').present? %>
+  <h2 class="course-status"><i class="fas fa-circle indicator booked"></i>My courses</h2>
+<% end %>
+<div class="row py-4">
+  <%@userbookings.where(status: 'booked').each do |booking|%>
+    <div class="col-lg-4 col-md-12">
+      <div class="card-course">
+        <%= render 'shared/card', course: booking.course %>
+        <span class="card-date"><%= booking.date.strftime("%a %d %b")
+       %></span>
+        <%#= booking.location%>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<% if @userbookings.where(status: 'cancel').present? %>
+  <h2 class="course-status"><i class="fas fa-circle indicator cancelled"></i>Cancelled courses</h2>
+<% end %>
+<div class="row py-4">
+  <%@userbookings.where(status: 'cancel').each do |booking|%>
+    <div class="col-lg-4 col-md-12">
+      <div class="card-course">
+        <%= render 'shared/card', course: booking.course %>
+        <span class="card-date"><%= booking.date.strftime("%a %d %b")
+       %></span>
+        <%#= booking.location%>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+</div>

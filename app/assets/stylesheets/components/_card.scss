@@ -1,49 +1,45 @@
 .card-course {
+  position: relative;
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border-radius: $border-radius;
   margin: 15px 0;
-}
 
-.card-course > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
+  & > img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
 
-.card-course {
   h2 {
     font-family: $body-font;
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 5px;
   }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+    margin-top: 5px;
+  }
+
   .card-course-pricing {
     align-self: flex-end;
     min-width: 100px;
     text-align: right;
     margin: 0;
   }
-}
 
-.card-course p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-course .card-course-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  min-height: 120px;
-
-  p {
-    margin-top: 5px;
+  .card-course-infos {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    min-height: 120px;
   }
 
   .card-course-detail {
@@ -61,11 +57,24 @@
       border: 1px solid;
     }
   }
+
+  .card-course-infos .card-course-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+  }
+
+  .card-date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-weight: bold;
+    text-shadow: $text-shadow;
+    background: rgba(0,0,0,0.3);
+    padding: 3px 8px;
+    border-radius: $border-radius;
+  }
 }
 
-.card-course-infos .card-course-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}

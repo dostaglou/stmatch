@@ -1,0 +1,24 @@
+.bookings {
+  h2.course-status {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .indicator {
+    font-size: 0.9rem;
+    margin-right: 20px;
+
+    &.booked {
+      color: $green;
+    }
+
+    &.pending {
+      color: $yellow;
+    }
+
+    &.cancelled {
+      color: $red;
+    }
+  }
+}
