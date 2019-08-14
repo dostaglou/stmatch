@@ -1,0 +1,9 @@
+<h1>This is a FORM to ADD a ##NEW## course</h1>
+
+<%= simple_form_for @course do |f| %>
+  <%= f.input :name %>
+  <%= f.input :level %>
+  <%= f.input :duration %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
