@@ -1,4 +1,4 @@
-class CoursePolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -14,12 +14,12 @@ class CoursePolicy < ApplicationPolicy
     true
   end
 
-  def update?
-    record.user == user
-  end
+  # TODO?
+  # def update?
+  #   record.user == user
+  # end
 
   def destroy?
     record.user == user
   end
-
 end
