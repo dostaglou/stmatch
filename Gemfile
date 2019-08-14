@@ -31,7 +31,7 @@ end
 
 # installed personally by DILLON
 gem 'devise'
-gem 'pundit'
+# gem 'pundit'
 
 #faker for db:seeds
 gem 'faker'

@@ -1,0 +1,23 @@
+<% @courses.each do |course| %>
+  <div class="col-lg-4 col-md-12">
+    <div class="card-course">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-course-infos">
+        <div>
+          <h2>
+            <%= link_to course_path(course) do %>
+              <% if course.name.length > 22 %>
+                <%= course.name.slice(0..22) + '...' %>
+              <% else %>
+                <%= course.name %>
+              <% end %>
+            <% end %>
+          </h2>
+          <p><%= course.description %></p>
+        </div>
+        <h2 class="card-course-pricing">1,500円/hr</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered"  data-toggle="tooltip" data-placement="bottom">
+      </div>
+    </div>
+  </div>
+<% end %>
