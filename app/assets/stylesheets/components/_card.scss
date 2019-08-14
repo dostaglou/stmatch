@@ -17,12 +17,13 @@
     font-family: $body-font;
     font-size: 1rem;
     font-weight: bold;
-    margin: 0;
+    margin-bottom: 5px;
   }
   .card-course-pricing {
     align-self: flex-end;
     min-width: 100px;
     text-align: right;
+    margin: 0;
   }
 }
 
@@ -39,10 +40,26 @@
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  min-height: 90px;
+  min-height: 120px;
 
   p {
     margin-top: 5px;
+  }
+
+  .card-course-detail {
+    width: max-content;
+    display: inline;
+    opacity: 0.7;
+    font-size: 0.8rem;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &.level {
+      padding: 2px 4px;
+      border: 1px solid;
+    }
   }
 }
 
