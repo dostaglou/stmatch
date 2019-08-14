@@ -1,0 +1,13 @@
+<h1>This is the booking show</h1>
+<br>
+<br>
+<h2>Student: <%= @booking.user.first_name %><%= @booking.user.last_name %></h2>
+<h2>Course title: <%= @booking.course.name %></h2>
+<h2>Course instructor: <%= @booking.course.user.first_name %><%= @booking.course.user.last_name %></h2>
+<h2>Date: <%= @booking.date %></h2>
+<h2>Location: <%= @booking.location %></h2>
+
+<%= link_to "EDIT ME", edit_booking_path(@booking) %>
+<br>
+<br>
+<%= link_to "Delete booking?", booking_path(@booking), method: :delete %>

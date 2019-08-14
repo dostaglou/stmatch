@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = policy_scope(Booking)
@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
-    @course = Course.find(params[:course_id])
+    @course = Course.find(@booking.course_id)
     authorize @course
   end
 
@@ -25,13 +25,30 @@ class BookingsController < ApplicationController
     @booking.course_id = params[:course_id]
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render :new
     end
   end
 
-  # This Controller still need and Edit and Update
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(set_booking_params)
+      redirect_to booking_path(@booking)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
+  end
 
   private
 
