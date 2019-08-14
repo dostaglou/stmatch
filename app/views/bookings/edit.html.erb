@@ -3,6 +3,6 @@
 <%= simple_form_for [@booking] do |f| %>
   <%= f.input :date %>
   <%= f.input :location %>
-  <%= f.input :status %>
+  <%= f.input :status, collection: ["booked", "pending", "cancel"]%>
   <%= f.submit %>
 <% end %>
