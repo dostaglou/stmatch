@@ -31,3 +31,4 @@ end
 
 # installed personally by DILLON
 gem 'devise'
+gem 'pundit'
