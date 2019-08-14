@@ -26,7 +26,7 @@ end
   course.save!
 end
 10.times do
-  booking = Booking.new(date: rand(1.years).days.from_now, location: Faker::Address.full_address, status: ["booked", "cancel", "pending"].sample)
+  booking = Booking.new(date: rand(1.years).seconds.from_now, location: Faker::Address.full_address, status: ["booked", "cancel", "pending"].sample)
   booking.user = User.all.sample
   booking.course = Course.all.sample
   booking.save!
