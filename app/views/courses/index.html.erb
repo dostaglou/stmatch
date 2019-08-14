@@ -1,8 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(<%= image_path('banner-home.jpg') %>);">
+  <div class="container">
+    <h1>Learn. Share. Connect.</h1>
+    <p>STMatch connects local teachers and students with each other to facilitate a unique learning experience.</p>
+    <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row py-5">
+    <%= render 'shared/card' %>
+  </div>
+</div>
+
 <h1>This is the courses index</h1>
 <ul>
-  <%@courses.each do |course|%>
-  <li><%= link_to "#{course.name}: #{course.description}", course_path(course)%></li>
-  <%end%>
+  <% @courses.each do |course| %>
+  <li><%= link_to "#{course.name}: #{course.description}", course_path(course) %></li>
+  <% end %>
 </ul>
 
 <br>
