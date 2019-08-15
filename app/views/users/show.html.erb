@@ -1,12 +1,33 @@
-<h1>User: <%= @user.first_name%> <%= @user.last_name%></h1>
+<div class="container profile">
+  <img class="avatar profile-avatar" src="http://placehold.jp/80x80.png">
+  <h1 class="text-center mt-4">
+    <%= @user.first_name%> <%= @user.last_name%>
+  </h1>
+  <h2>My Courses</h2>
 
+  <% @courses.each do |course|%>
+    <div class="row">
+      <div class="col-lg-4 col-md-12">
+        <div class="card-course">
+          <%= render 'shared/card', course: course %>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <p class="section-heading">Student Reviews</p>
+        <% course.reviews.each do |review| %>
+          <div class="card-review">
+            <% review.stars.times do %>
+              <i class="fas fa-star full"></i>
+            <% end %>
+            <% (5 - review.stars).times do %>
+              <i class="far fa-star empty"></i>
+            <% end %>
 
-
-<h2>Courses</h2>
-<% @courses.each do |course|%>
-  <h3><%=course.name%></h3>
-  <h3>Review</h3>
-  <% course.reviews.each do |review| %>
-    <p>Stars: <%=review.stars%>, Content: <%=review.content%><p>
+            <p class="text-sub"><%= review.user.first_name %> <%= review.user.last_name %></p>
+            <p class="review-content"><%=review.content%></p>
+          </div>
+        <%end%>
+      </div>
+    </div>
   <%end%>
-<%end%>
+</div>

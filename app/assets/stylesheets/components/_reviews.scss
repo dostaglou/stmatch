@@ -1,0 +1,25 @@
+.card-review {
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+
+  i {
+    color: $yellow;
+
+    &.empty {
+      opacity: 0.8;
+    }
+  }
+
+  .review-content {
+    margin-top: 5px;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
