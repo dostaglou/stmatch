@@ -5,7 +5,7 @@
     <!-- need user signed in check here to change button feature -->
 
     <% if user_signed_in? %>
-      <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Add a course</a>
+      <%= link_to "Add a Course", new_course_path, class:"btn btn-primary btn-lg px-4 mt-3" %>
     <% else %>
       <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a>
     <% end %>
