@@ -2,7 +2,13 @@
   <div class="container">
     <h1>Learn. Share. Connect.</h1>
     <p>STMatch connects local teachers and students with each other to facilitate a unique learning experience.</p>
-    <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a>
+    <!-- need user signed in check here to change button feature -->
+
+    <% if user_signed_in? %>
+      <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Add a course</a>
+    <% else %>
+      <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a>
+    <% end %>
   </div>
 </div>
 
