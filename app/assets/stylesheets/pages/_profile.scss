@@ -1,0 +1,18 @@
+.container.profile {
+  position: relative;
+  margin: 60px auto;
+  padding: 30px 50px;
+  background: white;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+
+  .avatar.profile-avatar {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: $box-shadow;
+    width: 80px;
+    height: 80px;
+  }
+}
