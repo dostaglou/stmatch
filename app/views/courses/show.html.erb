@@ -26,6 +26,8 @@
         </div>
       </div>
     </div>
+    <!-- BELOW IS THE SIGN UP FORM -->
+    <% if !policy(@course).edit? %>
     <div class="col-lg-4 col-md-12">
       <div class="form-container">
       <h2>Book this course</h2>
@@ -33,6 +35,7 @@
         <%= render './bookings/form' %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
 
@@ -49,7 +52,7 @@
       IT PREVENTS USERS FROM EDITING AND DESTROYING
       ENTRIES THAT AREN'T THEIRS -->
 <% if policy(@course).edit? %>
-  <%= link_to "EDIT ME", edit_course_path(@course) %>
+  <%= link_to "EDIT ME", edit_course_path(@course), class:"btn btn-warning"%>
   <br>
   <br>
   <%= link_to "Delete Course?", course_path(@course), method: :delete %>
