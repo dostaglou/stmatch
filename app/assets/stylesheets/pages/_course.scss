@@ -1,0 +1,49 @@
+// flatpickr input styling - needs to be applied manually?
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    appearance: menulist;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 300;
+    height: auto;
+    line-height: inherit;
+    margin: -1px 0 0 0;
+    outline: none;
+    padding: 0 0 0 0.5ch;
+    position: relative;
+    vertical-align: initial;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: menulist;
+    -moz-appearance: menulist;
+    width: auto;
+}
+
+.form-container {
+  background: $white;
+  padding: 30px;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.container.course {
+  .level {
+    border: 1px solid;
+    background: $gray;
+    color: white;
+  }
+  .level, .duration {
+    display: inline;
+    padding: 3px 9px;
+    width: max-content;
+    opacity: 0.6;
+    transition: $transition;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
