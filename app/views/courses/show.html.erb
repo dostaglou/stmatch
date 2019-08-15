@@ -5,6 +5,18 @@
   </div>
 </div>
 
+<!-- THIS LOGIC BELOW IS NEEDED
+      IT PREVENTS USERS FROM EDITING AND DESTROYING
+      ENTRIES THAT AREN'T THEIRS -->
+<% if policy(@course).edit? %>
+  <%= link_to "EDIT ME", edit_course_path(@course), class:"btn btn-warning" %>
+  <br>
+  <br>
+  <%= link_to "Delete Course?", course_path(@course), method: :delete, class:"btn btn-danger"%>
+<% end %>
+
+<!-- Please intergrate the above into the COURSE card -->
+
 <div class="container course">
   <div class="row py-5">
     <div class="col-lg-8 col-md-12">
@@ -13,6 +25,8 @@
       <p class="duration"><i class="fas fa-clock"></i> <%= @course.duration %></p>
       <p class="description mt-3"><%= @course.description %></p>
       <div class="reviews-container border-top py-4">
+  <!-- REVIEW SECTION BELOW -->
+        <% if !policy(@course).edit? %>
         <h3>Review this course</h3>
         <% @course.reviews.each do |review| %>
         <p>Stars: <%=review.stars%>, Content: <%=review.content%><p>
@@ -25,6 +39,7 @@
           <% end %>
         </div>
       </div>
+      <% end %>
     </div>
     <div class="col-lg-4 col-md-12">
       <div class="form-container">
@@ -44,13 +59,3 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-
-<!-- THIS LOGIC BELOW IS NEEDED
-      IT PREVENTS USERS FROM EDITING AND DESTROYING
-      ENTRIES THAT AREN'T THEIRS -->
-<% if policy(@course).edit? %>
-  <%= link_to "EDIT ME", edit_course_path(@course), class:"btn btn-warning" %>
-  <br>
-  <br>
-  <%= link_to "Delete Course?", course_path(@course), method: :delete, class:"btn btn-danger"%>
-<% end %>
