@@ -1,3 +1,17 @@
 .wrapper {
   min-height: calc(100vh - 40px);
 }
+
+.wrapper.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 24px;
+  .header {
+    text-align: center;
+    padding: 4px;
+  }
+  .header-sub{
+    text-align: center;
+    padding: 4px;
+  }
+}

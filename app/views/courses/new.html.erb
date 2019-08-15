@@ -1,9 +1,17 @@
-<h1>This is a FORM to ADD a ##NEW## course</h1>
-
-<%= simple_form_for @course do |f| %>
-  <%= f.input :name %>
-  <%= f.input :level %>
-  <%= f.input :duration %>
-  <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+<div class="wrapper form-wrapper">
+  <h1 class="header">
+    Let's Add a Course
+  </h1>
+   <%= simple_form_for @course do |f| %>
+    <%= f.input :name, placeholder: "Make it clear & catchy"%>
+    <%= f.input :level, collection:
+      ["Begginer", "Intermediate", "Advanced", "Native"]  %>
+    <%= f.input :duration, collection:
+      [20, 40, 60, 80, 100, 120, 140, 160,180] %>
+    <%= f.input :description, placeholder: "Piffy is best" %>
+    <div class="d-flex justify-content-between m-2">
+    <%= link_to "Return Home", root_path, class:"btn" %>
+    <%= f.button :submit, class:"btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
