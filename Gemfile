@@ -38,3 +38,6 @@ gem 'flatpickr', '~> 4.5', '>= 4.5.7.0'
 
 #faker for db:seeds
 gem 'faker'
+#cloudinary
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
