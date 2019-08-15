@@ -18,7 +18,7 @@
     </div>
     <p><%= course.description %></p>
   </div>
-  <h2 class="card-course-pricing">1,500円/hr</h2>
+  <h2 class="card-course-pricing"><%= "#{course.price}円/hr" %></h2>
   <div class="avatar card-course-user" data-toggle="tooltip" data-placement="bottom" data-original-title="<%= course.user.first_name + ' ' + course.user.last_name %>">
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered">
   </div>
