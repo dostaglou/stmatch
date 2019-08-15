@@ -12,24 +12,25 @@
       <p class="level"><%= @course.level %></p>
       <p class="duration"><i class="fas fa-clock"></i> <%= @course.duration %></p>
       <p class="description mt-3"><%= @course.description %></p>
+      <div class="reviews-container border-top py-4">
+        <h3>Review this course</h3>
+        <% @course.reviews.each do |review| %>
+        <p>Stars: <%=review.stars%>, Content: <%=review.content%><p>
+        <%end%>
+        <div class="form-review">
+          <%= simple_form_for [@course, @review] do |f| %>
+          <%= f.input :stars, as: :radio_buttons, collection: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], label_method: :second, value_method: :first %>
+          <%= f.input :content, label: false, placeholder: 'Leave a message...'%>
+          <%= f.submit "Submit review", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="col-lg-4 col-md-12">
       <div class="form-container">
       <h2>Book this course</h2>
       <p>Enter a time and place to meet with you teacher</p>
         <%= render './bookings/form' %>
-
-      <h2>Reviews</h2>
-      <% @course.reviews.each do |review| %>
-      <p>Stars: <%=review.stars%>, Content: <%=review.content%><p>
-      <%end%>
-      <div class="form-review">
-        <%= simple_form_for [@course, @review] do |f| %>
-        <%= f.input :stars, as: :radio_buttons, collection: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], label_method: :second, value_method: :first %>
-        <%= f.input :content%>
-        <%= f.submit "create review", class: "button" %>
-        <% end %>
-      </div>
       </div>
     </div>
   </div>
