@@ -10,6 +10,8 @@ class CoursesController < ApplicationController
     @booking = Booking.new
     authorize @booking
     authorize @course
+    @review = Review.new
+    authorize @review
   end
 
   def new

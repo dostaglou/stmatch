@@ -7,9 +7,9 @@
     <%= f.input :level, collection:
       ["Begginer", "Intermediate", "Advanced", "Native"]  %>
     <%= f.input :duration, collection:
-      [20, 40, 60, 80, 100, 120, 140, 160,180] %>
+      [20, 40, 60, 80, 100, 120, 140, 160,180], hint: "in minutes" %>
     <%= f.input :description, placeholder: "Piffy is best" %>
-    <div class="d-flex justify-content-between m-2">
+    <div class="d-flex justify-content-between m-2 mt-4">
     <%= link_to "Return Home", root_path, class:"btn" %>
     <%= f.button :submit, class:"btn btn-primary"%>
     </div>
