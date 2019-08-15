@@ -13,7 +13,9 @@
       <%= @course.description %>
     </div>
     <div class="col-lg-4 col-md-12">
-      <%= link_to "add a booking", new_course_booking_path(@course)%>
+      <h2>Book this course</h2>
+      <p>Enter a time and place to meet with you teacher</p>
+      <%= render './bookings/form' %>
     </div>
   </div>
 </div>
