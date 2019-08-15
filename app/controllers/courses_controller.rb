@@ -7,11 +7,21 @@ class CoursesController < ApplicationController
 
   def show
     authorize @course
+    @course_geo = Course.geocoded
+
+    @marker =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { course: @course }),
+        image_url: helpers.asset_url('marker.png')
+      }]
   end
 
   def new
     @course = Course.new
     authorize @course # this goes here because it needs to seed the course
+    @course_geo = Course.geocoded
   end
 
   def create
@@ -51,6 +61,6 @@ class CoursesController < ApplicationController
   end
 
   def set_course_params
-    params.require(:course).permit(:name, :level, :duration, :description)
+    params.require(:course).permit(:name, :level, :duration, :description, :location)
   end
 end

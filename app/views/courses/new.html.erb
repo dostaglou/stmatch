@@ -9,6 +9,8 @@
     <%= f.input :duration, collection:
       [20, 40, 60, 80, 100, 120, 140, 160,180] %>
     <%= f.input :description, placeholder: "Piffy is best" %>
+    <%= f.input :location, placeholder: "Where would you like to teach?" %>
+
     <div class="d-flex justify-content-between m-2">
     <%= link_to "Return Home", root_path, class:"btn" %>
     <%= f.button :submit, class:"btn btn-primary"%>
