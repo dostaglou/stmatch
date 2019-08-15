@@ -1,5 +1,5 @@
 <div class="container profile">
-  <img class="avatar profile-avatar" src="http://placehold.jp/80x80.png">
+<%= cl_image_tag @user.photo, height: 80, width: 80, crop: :fill, class:"avatar profile-avatar" %>
   <h1 class="text-center mt-4">
     <%= @user.first_name%> <%= @user.last_name%>
   </h1>
@@ -31,3 +31,9 @@
     </div>
   <%end%>
 </div>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "update profile image", class: "button" %>
+<% end %>
