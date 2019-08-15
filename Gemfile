@@ -35,3 +35,6 @@ gem 'pundit'
 
 #faker for db:seeds
 gem 'faker'
+#cloudinary
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
