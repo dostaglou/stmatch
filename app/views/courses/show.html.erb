@@ -5,17 +5,20 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container course">
   <div class="row py-5">
     <div class="col-lg-8 col-md-12">
-      <%= @course.duration %>
-      <%= @course.level %>
-      <%= @course.description %>
+      <h2 class="mb-3">Course Description</h2>
+      <p class="level"><%= @course.level %></p>
+      <p class="duration"><i class="fas fa-clock"></i> <%= @course.duration %></p>
+      <p class="description mt-3"><%= @course.description %></p>
     </div>
     <div class="col-lg-4 col-md-12">
+      <div class="form-container">
       <h2>Book this course</h2>
       <p>Enter a time and place to meet with you teacher</p>
-      <%= render './bookings/form' %>
+        <%= render './bookings/form' %>
+      </div>
     </div>
   </div>
 </div>
