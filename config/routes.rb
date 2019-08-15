@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :show, :destroy, :edit, :update]
+  
+  resources :courses, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
+  resources :reviews, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

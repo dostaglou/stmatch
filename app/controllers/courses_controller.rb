@@ -7,6 +7,8 @@ class CoursesController < ApplicationController
 
   def show
     authorize @course
+    @review = Review.new
+    authorize @review
   end
 
   def new
