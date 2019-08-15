@@ -1,14 +1,22 @@
-<h1>This is the course show</h1>
-<br>
-<br>
-<%= @course.name %>
-<%= @course.duration %>
-<%= @course.level %>
-<%= @course.description %>
+<div class="banner secondary" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(<%= image_path('banner-home.jpg') %>);">
+  <!-- ^^ INSERT COURSE IMAGE ^^ -->
+  <div class="container">
+    <h1><%= @course.name %></h1>
+  </div>
+</div>
 
-<%= link_to "add a booking", new_course_booking_path(@course)%>
-<br>
-<br>
+<div class="container">
+  <div class="row py-5">
+    <div class="col-lg-8 col-md-12">
+      <%= @course.duration %>
+      <%= @course.level %>
+      <%= @course.description %>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <%= link_to "add a booking", new_course_booking_path(@course)%>
+    </div>
+  </div>
+</div>
 
 <!-- THIS LOGIC BELOW IS NEEDED
       IT PREVENTS USERS FROM EDITING AND DESTROYING
