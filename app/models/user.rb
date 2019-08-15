@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :courses
   # The below gives us access to the bookings of users
   has_many :bookings
-  has_many :reviews
+  has_many :reviews, through: :courses
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
