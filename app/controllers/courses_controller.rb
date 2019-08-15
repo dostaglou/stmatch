@@ -6,6 +6,9 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.find(params[:id])
+    @booking = Booking.new
+    authorize @booking
     authorize @course
     @course_geo = Course.geocoded
 
@@ -16,6 +19,9 @@ class CoursesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { course: @course }),
         image_url: helpers.asset_url('marker.png')
       }]
+    @review = Review.new
+    authorize @review
+
   end
 
   def new
