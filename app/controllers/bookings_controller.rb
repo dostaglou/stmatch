@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @bookings = policy_scope(Booking)
     # below is all associated bookings
@@ -19,7 +18,7 @@ class BookingsController < ApplicationController
       end
     end
   end
-  
+
   def show
     authorize @booking
     @course = Course.find(@booking.course_id)
