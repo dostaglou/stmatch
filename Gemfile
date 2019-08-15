@@ -31,6 +31,7 @@ end
 
 # installed personally by DILLON
 gem 'devise'
+gem 'geocoder'
 gem 'pundit'
 
 # styled datetime picker
