@@ -41,7 +41,6 @@
     align-items: flex-start;
     position: relative;
     min-height: 150px;
-  }
 
     .card-course-title > h2 {
       display: flex;
@@ -53,6 +52,7 @@
         text-overflow: ellipsis;
       }
     }
+
     .card-course-detail {
       width: max-content;
       display: inline;
@@ -68,16 +68,17 @@
         border: 1px solid;
       }
     }
-      p {
-        max-width: 300px;
-        line-height: 1.1rem;
-        max-height: 3.3rem;
-        overflow: hidden;
-        display: -webkit-box;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-      }
+
+    p {
+      max-width: 300px;
+      line-height: 1.1rem;
+      max-height: 3.3rem;
+      overflow: hidden;
+      display: -webkit-box;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
   }
 
   .card-course-infos .card-course-user {

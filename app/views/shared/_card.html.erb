@@ -14,11 +14,7 @@
     <div class="card-course-detail level">
       <%= course.level %>
     </div>
-    <% if course.description.length > 150 %>
-      <p><%= course.description.slice(0..150) %></p>
-    <% else %>
-      <p><%= course.description %></p>
-    <% end %>
+    <p><%= course.description %></p>
   </div>
   <h2 class="card-course-pricing"><%= "#{course.price}円/hr" %></h2>
   <div class="avatar card-course-user" data-toggle="tooltip" data-placement="bottom" data-original-title="<%= course.user.first_name + ' ' + course.user.last_name %>">
