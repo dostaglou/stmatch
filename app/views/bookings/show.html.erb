@@ -1,8 +1,7 @@
 <div class="container profile py-5">
   <div class="booking-heading">
     <i class="fas fa-check progress-circle"></i>
-    <h1>Thanks!</h1>
-    <h2>Your booking request has been sent to your teacher for review</h2>
+    <h1>Your booking for <%= @course.name %></h1>
   </div>
 
   <div class="row mt-4">
@@ -13,7 +12,7 @@
         <p><strong>Course</strong> <%= @booking.course.name %></p>
         <p><strong>Instructor</strong> <%= @booking.course.user.first_name %> <%= @booking.course.user.last_name %></p>
         <p><strong>Status</strong> <%= @booking.status %></p>
-        <p><strong>Date</strong> <%= @booking.date %></p>
+        <p><strong>Date</strong> <%= @booking.date.strftime("%A %d %b %Y") %></p>
         <p><strong>Location</strong> <%= @booking.location %></p>
         <div class="edit-options">
           <%= link_to edit_booking_path(@booking) do %>
