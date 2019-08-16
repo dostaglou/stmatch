@@ -59,7 +59,7 @@
   <% if @userbookings.where(status: 'confirmed').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator booked"></i>My courses</h2>
   <div class="row py-4">
-    <%@userbookings.where(status: 'booked').each do |booking|%>
+    <%@userbookings.where(status: 'confirmed').each do |booking|%>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: booking.course %>
@@ -75,7 +75,7 @@
   <% if @userbookings.where(status: 'cancelled').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator cancelled"></i>Cancelled courses</h2>
   <div class="row py-4">
-    <%@userbookings.where(status: 'cancel').each do |booking|%>
+    <%@userbookings.where(status: 'cancelled').each do |booking|%>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: booking.course %>
