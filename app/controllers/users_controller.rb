@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
     @user = current_user
     @reviews = @user.reviews
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
     authorize @reviews
     authorize @courses
   end
+
   def edit
     @user = current_user
     authorize @user
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def set_user_params
     params.require(:user).permit(:photo)
   end
