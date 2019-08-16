@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
       "
       @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
+    
     if user_signed_in?
       @user = current_user
       @your_courses = current_user.courses
