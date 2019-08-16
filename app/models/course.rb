@@ -8,6 +8,10 @@ class Course < ApplicationRecord
   has_many :bookings
 
   include PgSearch
-  multisearchable against: [ :name, :level, :description ]
-
+  # multisearchable against: [ :name, :level, :description ]
+  pg_search_scope :global_search,
+    against: [ :name, :level, :duration, :description, :location, :price ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
