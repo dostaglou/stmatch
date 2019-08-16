@@ -11,6 +11,9 @@ class Course < ApplicationRecord
   # multisearchable against: [ :name, :level, :description ]
   pg_search_scope :global_search,
     against: [ :name, :level, :duration, :description, :location, :price ],
+    associated_against: {
+      user: [:first_name, :last_name]
+    },
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
