@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
         OR users.last_name @@ :query \
       "
       @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-
+    end
     if user_signed_in?
       @your_courses = current_user.courses
       @courses_from_others = []
@@ -96,6 +96,6 @@ class CoursesController < ApplicationController
                                     :description,
                                     :location,
                                     :price
-                                    )
+                                  )
   end
 end
