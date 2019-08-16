@@ -2,6 +2,22 @@
   <h1 class="mb-5">My Bookings</h1>
   <!-- The Below, in conjunction with the updated Bookings and User models gives us only the pending bookings wherein current user is the teacher -->
 
+  <% @teacher_pending.each do |booking| %>
+  <h1>THESE</h1>
+  <div class="row py-4">
+      <div class="col-lg-4 col-md-12">
+        <div class="card-course">
+          <%= render 'shared/card', course: booking.course %>
+          <span class="card-date"><%= booking.date.strftime("%a %d %b")
+         %></span>
+          <%#= booking.location%>
+        </div>
+      </div>
+  </div>
+
+    <br>
+
+   <% end %>
 
   <% if @userbookings.where(status: 'pending').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator pending"></i>Pending courses</h2>
