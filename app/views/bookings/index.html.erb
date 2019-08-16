@@ -1,44 +1,7 @@
 <div class="container bookings py-5">
   <h1 class="mb-5">My Bookings</h1>
   <!-- The Below, in conjunction with the updated Bookings and User models gives us only the pending bookings wherein current user is the teacher -->
-
-  <% @teacher_pending.each do |booking| %>
-  <h1>THESE ARE PENDING</h1>
-  <div class="row py-4">
-      <div class="col-lg-4 col-md-12">
-        <div class="card-course">
-          <%= render 'shared/card', course: booking.course %>
-          <span class="card-date"><%= booking.date.strftime("%a %d %b")
-         %></span>
-          <%#= booking.location%>
-        </div>
-      </div>
-  </div>
-
-
-
-  <%= button_to 'Confirm', booking_path(  booking, booking:{status: "confirmed"}), method: "patch" %>
-
-  <%= button_to 'Deny', booking_path(  booking, booking:{status: "cancelled"}), method: "patch" %>
-
-  <% end %>
-   <% @teacher_confirmed.each do |booking| %>
-  <h1>THESE ARE CONFIRMED</h1>
-  <div class="row py-4">
-      <div class="col-lg-4 col-md-12">
-        <div class="card-course">
-          <%= render 'shared/card', course: booking.course %>
-          <span class="card-date"><%= booking.date.strftime("%a %d %b")
-         %></span>
-          <%#= booking.location%>
-        </div>
-      </div>
-  </div>
-    <br>
-  <% end %>
-
-
-
+  <%= @current_user.bookings_as_teacher.where(status: "pending") %>
 
   <% if @userbookings.where(status: 'pending').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator pending"></i>Pending courses</h2>
@@ -56,10 +19,10 @@
   </div>
   <% end %>
 
-  <% if @userbookings.where(status: 'confirmed').present? %>
+  <% if @userbookings.where(status: 'booked').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator booked"></i>My courses</h2>
   <div class="row py-4">
-    <%@userbookings.where(status: 'confirmed').each do |booking|%>
+    <%@userbookings.where(status: 'booked').each do |booking|%>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: booking.course %>
@@ -72,10 +35,10 @@
   </div>
   <% end %>
 
-  <% if @userbookings.where(status: 'cancelled').present? %>
+  <% if @userbookings.where(status: 'cancel').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator cancelled"></i>Cancelled courses</h2>
   <div class="row py-4">
-    <%@userbookings.where(status: 'cancelled').each do |booking|%>
+    <%@userbookings.where(status: 'cancel').each do |booking|%>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: booking.course %>
