@@ -11,7 +11,12 @@ class CoursesController < ApplicationController
     authorize @booking
     authorize @course
     @course_geo = Course.geocoded
-
+    @courses_taken = []
+    if user_signed_in?
+      current_user.bookings.each do |booking|
+        @courses_taken << booking.course.name
+      end
+    end
     @marker =
       [{
         lat: @course.latitude,
@@ -21,7 +26,6 @@ class CoursesController < ApplicationController
       }]
     @review = Review.new
     authorize @review
-
   end
 
   def new
