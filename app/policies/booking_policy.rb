@@ -6,7 +6,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user || record.course.user == user
+    if record.user == user || record.course.user == user
+      return true
+    else
+      redirect_to root_path
+    end
   end
 
   def create?
