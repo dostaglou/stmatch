@@ -5,5 +5,5 @@ class Course < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
   has_many :reviews
   validates :name, :level, :duration, :description, presence: true
-
+  has_many :bookings
 end
