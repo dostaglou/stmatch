@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
       @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
     if user_signed_in?
+      @user = current_user
       @your_courses = current_user.courses
       @courses_from_others = []
       @courses.each do |course|
@@ -25,6 +26,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @course = Course.find(params[:id])
     @booking = Booking.new
     authorize @booking
@@ -48,6 +50,7 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @course = Course.new
     authorize @course # this goes here because it needs to seed the course
     @course_geo = Course.geocoded

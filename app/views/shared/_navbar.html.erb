@@ -20,7 +20,7 @@
           %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
         </div>
-          <% end %>
+        <% end %>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Your Bookings", bookings_path, class: "nav-link" %>
@@ -29,7 +29,7 @@
             <%#= link_to "Messages", "#", class: "nav-link" %>
           </li> -->
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag @user.photo, crop: :fill, class:"avatar profile-avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Add a Course", new_course_path(@course), class: "dropdown-item" %>
