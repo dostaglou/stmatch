@@ -13,8 +13,9 @@ class CoursesController < ApplicationController
       "
       @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
-
+    
     if user_signed_in?
+      @user = current_user
       @your_courses = current_user.courses
       @courses_from_others = []
       @courses.each do |course|
@@ -97,6 +98,6 @@ class CoursesController < ApplicationController
                                     :description,
                                     :location,
                                     :price
-                                    )
+                                  )
   end
 end

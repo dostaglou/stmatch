@@ -4,4 +4,5 @@ class Booking < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_location?
   validates :user, :course, :date, :location, :status, presence: true
+
 end

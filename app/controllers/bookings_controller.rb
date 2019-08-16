@@ -2,7 +2,19 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking)
+
+    if params[:query].present?
+      sql_query = " \
+        courses.name @@ :query \
+        OR courses.level @@ :query \
+        OR courses.description @@ :query \
+        OR users.first_name @@ :query \
+        OR users.last_name @@ :query \
+      "
+      @bookings = policy_scope(Booking).joins(:course).joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else 
+      @bookings = policy_scope(Booking)
+    end
     # below is all associated bookings
     @userbookings = @bookings.where(user: current_user)
     # below is only the above's bookings as student if any
