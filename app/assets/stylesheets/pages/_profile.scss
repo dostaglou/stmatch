@@ -1,7 +1,8 @@
 .container.profile {
   position: relative;
   margin: 60px auto;
-  padding: 30px 50px;
+  padding: 30px 60px;
+  box-sizing: content-box;
   background: white;
   box-shadow: $box-shadow;
   border-radius: $border-radius;
