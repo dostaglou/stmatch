@@ -7,14 +7,14 @@
   margin: 15px 0;
 
   & > img {
-    height: 200px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
   }
 
   h2 {
     font-family: $body-font;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 5px;
   }
@@ -27,6 +27,7 @@
   }
 
   .card-course-pricing {
+    font-size: 1rem;
     align-self: flex-end;
     min-width: 100px;
     text-align: right;
@@ -39,7 +40,7 @@
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
-    min-height: 120px;
+    min-height: 150px;
   }
 
   .card-course-detail {
