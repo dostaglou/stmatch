@@ -67,6 +67,12 @@ class CoursesController < ApplicationController
   end
 
   def set_course_params
-    params.require(:course).permit(:name, :level, :duration, :description, :location)
+    params.require(:course).permit( :name,
+                                    :level,
+                                    :duration,
+                                    :description,
+                                    :location,
+                                    :price
+                                    )
   end
 end
