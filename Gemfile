@@ -30,6 +30,7 @@ end
 
 
 # installed personally by DILLON
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'devise'
 gem 'geocoder'
 gem 'pundit'

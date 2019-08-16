@@ -13,6 +13,12 @@ class CoursesController < ApplicationController
       "
       @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
+
+    if params[:search]
+      @filter = params[:search]["level"].concat(params[:search]["duration"]).flatten.reject(&:blank?)
+      @courses = @filter.empty? ? Course.all : Course.all.tagged_with(@filter, any: true)
+    end
+
     if user_signed_in?
       @user = current_user
       @your_courses = current_user.courses
@@ -92,8 +98,8 @@ class CoursesController < ApplicationController
 
   def set_course_params
     params.require(:course).permit( :name,
-                                    :level,
-                                    :duration,
+                                    :level_list,
+                                    :duration_list,
                                     :description,
                                     :location,
                                     :price
