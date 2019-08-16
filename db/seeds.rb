@@ -21,7 +21,7 @@ email: 'test@gmail.com', password: '123123')
   user.save!
 end
 10.times do
-  course = Course.new(name: Faker::Educator.course_name, level: ['N1','N2','N3','N4','N5'].sample, duration: "1 hr", description: Faker::GreekPhilosophers.quote)
+  course = Course.new(name: Faker::Educator.course_name, level: ['Beginner','Intermediate','Advanced','Native'].sample, duration: ["20mins","40mins","60mins"].sample, description: Faker::GreekPhilosophers.quote)
   course.user = User.all.sample
   course.save!
 end

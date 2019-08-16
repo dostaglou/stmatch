@@ -6,7 +6,7 @@
     <%= f.input :name, placeholder: "What is the course name?"%>
     <%= f.input :level, collection:
       ["Beginner", "Intermediate", "Advanced", "Native"]  %>
-    <%= f.input :duration, collection:[20, 40, 60, 80, 100, 120, 140, 160,180], hint: "in minutes" %>
+    <%= f.input :duration, collection:["20mins", "40mins", "60mins", "80mins", "100mins", "120mins", "140mins", "160mins","180mins"], hint: "in minutes" %>
     <%= f.input :description, placeholder: "Enter course description." %>
     <%= f.input :location, placeholder: "Where would you like to teach?" %>
     <%= f.input :price, placeholder: "Price per hour in 円" %>
