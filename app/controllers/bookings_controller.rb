@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     # below is all associated bookings
     @userbookings = @bookings.where(user: current_user)
     # below is only the above's bookings as student if any
+    @teacher_pending = current_user.bookings_as_teacher.where(status: "pending")
   end
 
   def show
