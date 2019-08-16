@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
     else 
       @bookings = policy_scope(Booking)
     end
-    @user = current_user
     # below is all associated bookings
     @userbookings = @bookings.where(user: current_user)
     # below is only the above's bookings as student if any
@@ -24,14 +23,12 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @user = current_user
     authorize @booking
     @course = Course.find(@booking.course_id)
     authorize @course
   end
 
   def new
-    @user = current_user
     @course = Course.find(params[:course_id])
     @booking = Booking.new
     authorize @booking

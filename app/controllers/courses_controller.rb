@@ -26,7 +26,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @user = current_user
     @course = Course.find(params[:id])
     @booking = Booking.new
     authorize @booking
@@ -50,7 +49,6 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @user = current_user
     @course = Course.new
     authorize @course # this goes here because it needs to seed the course
     @course_geo = Course.geocoded
