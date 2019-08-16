@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
         OR users.last_name @@ :query \
       "
       @bookings = policy_scope(Booking).joins(:course).joins(:user).where(sql_query, query: "%#{params[:query]}%")
-    else 
+    else
       @bookings = policy_scope(Booking)
     end
     # below is all associated bookings
