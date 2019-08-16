@@ -7,16 +7,6 @@ class BookingsController < ApplicationController
     # below is all associated bookings
     @userbookings = @bookings.where(user: current_user)
     # below is only the above's bookings as student if any
-    @student_bookings = []
-    # below is only the above's bookings as teacher if any
-    @teacher_bookings = []
-    @userbookings.each do |booking|
-      if booking.course.user_id == current_user.id
-        @teacher_bookings << booking
-      else
-        @student_bookings << booking
-      end
-    end
   end
 
   def show
@@ -39,7 +29,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new
+      redirect_to course_path(@booking.course)
     end
   end
 
