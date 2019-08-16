@@ -14,6 +14,14 @@ class BookingsController < ApplicationController
     authorize @booking
     @course = Course.find(@booking.course_id)
     authorize @course
+    @course_geo = Course.geocoded
+    @marker =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { course: @course }),
+        image_url: helpers.asset_url('marker.png')
+      }]
   end
 
   def new
