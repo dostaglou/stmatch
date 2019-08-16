@@ -7,7 +7,8 @@
     <% if user_signed_in? %>
       <%= link_to "Add a Course", new_course_path, class:"btn btn-primary btn-lg px-4 mt-3" %>
     <% else %>
-      <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a>
+      <!-- <a class="btn btn-primary btn-lg px-4 mt-3" href="#">Sign up</a> -->
+      <%= link_to "Sign Up", new_user_session_path, class:"btn btn-primary btn-lg px-4 mt-3" %>
     <% end %>
   </div>
 </div>
