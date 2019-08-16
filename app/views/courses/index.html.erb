@@ -24,3 +24,13 @@
     <% end %>
   </div>
 </div>
+<%if user_signed_in?%>
+  <h2>Your Courses</h2>
+  <%@your_courses.each do |course|%>
+    <p><%=course.name%></p>
+  <%end%>
+  <h2>Other Courses</h2>
+  <%@courses_from_others.each do |course|%>
+    <p><%=course.name%></p>
+  <%end%>
+<%end%>

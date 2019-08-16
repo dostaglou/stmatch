@@ -3,6 +3,15 @@ class CoursesController < ApplicationController
 
   def index
     @courses = policy_scope(Course)
+    if user_signed_in?
+      @your_courses = current_user.courses
+      @courses_from_others = []
+      @courses.each do |course|
+        if !@your_courses.include?(course)
+          @courses_from_others << course
+        end
+      end
+    end
   end
 
   def show
