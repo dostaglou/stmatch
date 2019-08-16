@@ -3,6 +3,18 @@ class CoursesController < ApplicationController
 
   def index
     @courses = policy_scope(Course)
+
+    if params[:query].present?
+      sql_query = " \
+        courses.name @@ :query \
+        OR courses.level @@ :query \
+        OR courses.description @@ :query \
+        OR users.first_name @@ :query \
+        OR users.last_name @@ :query \
+      "
+      @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+
+    end
   end
 
   def show

@@ -6,4 +6,8 @@ class Course < ApplicationRecord
   has_many :reviews
   validates :name, :level, :duration, :description, presence: true
   has_many :bookings
+
+  include PgSearch
+  multisearchable against: [ :name, :level, :description ]
+
 end

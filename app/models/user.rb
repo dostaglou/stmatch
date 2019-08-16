@@ -11,4 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, presence: true
+
+  include PgSearch
+  multisearchable against: [ :first_name, :last_name ]
+
 end
