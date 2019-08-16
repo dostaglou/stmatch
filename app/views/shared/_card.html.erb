@@ -3,8 +3,8 @@
   <div>
     <h2>
       <%= link_to course_path(course) do %>
-        <% if course.name.length > 22 %>
-          <%= course.name.slice(0..22) + '...' %>
+        <% if course.name.length > 17 %>
+          <%= course.name.slice(0..17) + '...' %>
         <% else %>
           <%= course.name %>
         <% end %>
@@ -16,7 +16,13 @@
     <div class="card-course-detail level">
       <%= course.level %>
     </div>
-    <p><%= course.description %></p>
+    <p>
+      <% if course.description.length > 110 %>
+        <%= course.description.slice(0..110) + '...' %>
+      <% else %>
+        <%= course.description %>
+      <% end %>
+    </p>
   </div>
   <h2 class="card-course-pricing">1,500円/hr</h2>
   <div class="avatar card-course-user" data-toggle="tooltip" data-placement="bottom" data-original-title="<%= course.user.first_name + ' ' + course.user.last_name %>">

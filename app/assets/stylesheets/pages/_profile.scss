@@ -6,6 +6,10 @@
   box-shadow: $box-shadow;
   border-radius: $border-radius;
 
+  .row:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
   .avatar.profile-avatar {
     position: absolute;
     top: -40px;

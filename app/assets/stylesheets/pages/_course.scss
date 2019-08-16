@@ -28,6 +28,8 @@
   padding: 30px;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  position: sticky;
+  top: 30px;
 }
 
 .container.course {
