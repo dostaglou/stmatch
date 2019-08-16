@@ -33,6 +33,7 @@ end
 gem 'devise'
 gem 'geocoder'
 gem 'pundit'
+gem 'pg_search'
 
 # styled datetime picker
 gem 'flatpickr', '~> 4.5', '>= 4.5.7.0'
