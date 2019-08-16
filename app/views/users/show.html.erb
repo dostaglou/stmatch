@@ -1,7 +1,15 @@
 <div class="container profile">
-  <%= link_to  "#exampleModal", "data-toggle": "modal" do %>
-  <%= cl_image_tag @user.photo, height: 80, width: 80, crop: :fill, class:"avatar profile-avatar" %>
-  <% end %>
+
+  <% if @user == current_user %>
+    <%= link_to  "#exampleModal", "data-toggle": "modal" do %>
+    <%= cl_image_tag @user.photo, height: 80, width: 80, crop: :fill, class:"avatar profile-avatar" %>
+   <% end %>
+  <% else %>
+    <%= cl_image_tag @user.photo, height: 80, width: 80, crop: :fill, class:"avatar profile-avatar" %>
+    <% end %>
+
+
+
   <h1 class="text-center mt-4">
     <%= @user.first_name%> <%= @user.last_name%>
   </h1>
