@@ -9,3 +9,34 @@
   font-size: 0.8rem;
   font-weight: bold;
 }
+
+.edit-options {
+  display: flex;
+  padding: 0 15px;
+  a {
+    width: 50%;
+    text-align: center;
+    background: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    &:hover {
+      text-decoration: none;
+    }
+    &:hover i {
+      opacity: 1;
+    }
+    &:hover i.edit {
+      color: $blue;
+    }
+    &:hover i.delete {
+      color: $red;
+    }
+  }
+  i {
+    color: $gray;
+    font-size: 1.5rem;
+    margin: 0 5px;
+    opacity: 0.7;
+    transition: all 0.25s ease-in;
+  }
+}

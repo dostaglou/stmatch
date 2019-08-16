@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
       @bookings = policy_scope(Booking).joins(:course).joins(:user).global_search(params[:query])
       # .where(sql_query, query: "%#{params[:query]}%")
     else 
+
       @bookings = policy_scope(Booking)
     end
     # below is all associated bookings
@@ -27,6 +28,14 @@ class BookingsController < ApplicationController
     authorize @booking
     @course = Course.find(@booking.course_id)
     authorize @course
+    @course_geo = Course.geocoded
+    @marker =
+      [{
+        lat: @course.latitude,
+        lng: @course.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { course: @course }),
+        image_url: helpers.asset_url('marker.png')
+      }]
   end
 
   def new

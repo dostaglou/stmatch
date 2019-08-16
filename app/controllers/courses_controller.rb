@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
     if params[:query].present?
       @courses = policy_scope(Course).joins(:user).global_search(params[:query])
     end
+    
     if user_signed_in?
       @user = current_user
       @your_courses = current_user.courses
