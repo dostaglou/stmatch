@@ -1,5 +1,7 @@
 <div class="container bookings py-5">
   <h1 class="mb-5">My Bookings</h1>
+  <!-- The Below, in conjunction with the updated Bookings and User models gives us only the pending bookings wherein current user is the teacher -->
+  <%= @current_user.bookings_as_teacher.where(status: "pending") %>
 
   <% if @userbookings.where(status: 'pending').present? %>
     <h2 class="course-status"><i class="fas fa-circle indicator pending"></i>Pending courses</h2>
