@@ -4,14 +4,7 @@ class CoursesController < ApplicationController
   def index
     @courses = policy_scope(Course)
     if params[:query].present?
-      sql_query = " \
-        courses.name @@ :query \
-        OR courses.level @@ :query \
-        OR courses.description @@ :query \
-        OR users.first_name @@ :query \
-        OR users.last_name @@ :query \
-      "
-      @courses = Course.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      @courses = policy_scope(Course).joins(:user).global_search(params[:query])
     end
 
     if params[:search]
@@ -19,15 +12,11 @@ class CoursesController < ApplicationController
       @courses = @filter.empty? ? Course.all : Course.all.tagged_with(@filter, any: true)
     end
 
+
     if user_signed_in?
       @user = current_user
       @your_courses = current_user.courses
-      @courses_from_others = []
-      @courses.each do |course|
-        if !@your_courses.include?(course)
-          @courses_from_others << course
-        end
-      end
+      @courses_from_others = @courses.where.not(user: current_user)
     end
   end
 
