@@ -29,12 +29,21 @@
             <%#= link_to "Messages", "#", class: "nav-link" %>
           </li> -->
           <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Add a Course", new_course_path(@course), class: "dropdown-item" %>
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
+
+            <% if current_user[:photo].nil? %>
+              <%= cl_image_tag("agtopbcdyfpnanvjlwkh",
+                   :crop => :fill, :id => "navbarDropdown", :data => { :toggle => "dropdown" }, :'aria-haspopup' => true,
+                   :'aria-expanded' => false, class: "avatar dropdown-toggle",
+                   :default_image => "agtopbcdyfpnanvjlwkh.png") %>
+            <% else %>
+              <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%#= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Add a Course", new_course_path(@course), class: "dropdown-item" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
           </li>
         <% else %>
           <li class="nav-item">
