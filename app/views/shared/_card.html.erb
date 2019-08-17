@@ -12,9 +12,9 @@
       <i class="fas fa-clock"></i> <%= course.duration  %>
     </div>
     <div class="card-course-detail level">
-      <%= course.level %>
+      <%= course.level_list %>
     </div>
-    <p><%= course.description %></p>
+    <p><%= course.description_list %></p>
   </div>
   <h2 class="card-course-pricing"><%= "#{course.price}円/hr" %></h2>
   <div class="avatar card-course-user" data-toggle="tooltip" data-placement="bottom" data-original-title="<%= course.user.first_name + ' ' + course.user.last_name %>">

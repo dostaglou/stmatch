@@ -7,20 +7,20 @@ class Course < ApplicationRecord
   has_many :bookings
 
   include PgSearch
-#   multisearchable against: [ :name, :level, :description ]
+  multisearchable against: [ :name, :level, :description ]
 
-#   acts_as_taggable_on :level, :duration
+  acts_as_taggable_on :level, :duration
 
-#   $level = ["Beginner", "Intermediate", "Advanced", "Native"]
-#   $duration = [20, 40, 60, 80, 100, 120, 140, 160, 180]
-  # multisearchable against: [ :name, :level, :description ]
-  
+  $level = ["Beginner", "Intermediate", "Advanced", "Native"]
+  $duration = [20, 40, 60, 80, 100, 120, 140, 160, 180]
+  multisearchable against: [ :name, :level, :description ]
+
   pg_search_scope :global_search,
     against: [ :name, :level, :duration, :description, :location, :price ],
     associated_against: {
       user: [:first_name, :last_name]
     },
     using: {
-      tsearch: { prefix: true } 
+      tsearch: { prefix: true }
     }
 end
