@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       # "
       @bookings = policy_scope(Booking).joins(:course).joins(:user).global_search(params[:query])
       # .where(sql_query, query: "%#{params[:query]}%")
-    else 
+    else
 
       @bookings = policy_scope(Booking)
     end
@@ -49,6 +49,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.course_id = params[:course_id]
     @booking.user = current_user
+
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -82,6 +83,6 @@ class BookingsController < ApplicationController
   end
 
   def set_booking_params
-    params.require(:booking).permit(:date, :location, :status)
+    params.require(:booking).permit(:date, :status)
   end
 end
