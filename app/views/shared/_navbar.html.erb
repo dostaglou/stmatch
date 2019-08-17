@@ -31,10 +31,10 @@
           <li class="nav-item dropdown">
 
             <% if current_user[:photo].nil? %>
-              <%= cl_image_tag("jt9km7dxczuzvciji7gf",
+              <%= cl_image_tag("agtopbcdyfpnanvjlwkh",
                    :crop => :fill, :id => "navbarDropdown", :data => { :toggle => "dropdown" }, :'aria-haspopup' => true,
                    :'aria-expanded' => false, class: "avatar dropdown-toggle",
-                   :default_image => "jt9km7dxczuzvciji7gf.jpg") %>
+                   :default_image => "agtopbcdyfpnanvjlwkh.png") %>
             <% else %>
               <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <%#= cl_image_tag current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
