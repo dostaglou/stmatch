@@ -13,8 +13,26 @@
   </div>
 </div>
 
+<div class= "tag-form d-flex container" style="width:80%; justify-content: center;margin: 0 auto;">
+<%= simple_form_for :search, html: {class:"w-100"},url: root_path, method: "GET" do |f| %>
+  <div class="d-flex justify-content-between">
+    <div>
+      <%= f.input :level, inline_label: "Level", collection: $level, as: :check_boxes, wrapper: :vertical_collection_inline  %>
+    </div>
+    <div>
+      <%= f.input :duration, label: "Duration", collection: $duration, as: :check_boxes, wrapper: :vertical_collection_inline %>
+    </div>
+  </div>
+  <div class="d-flex flex-row-reverse">
+  <%= link_to "Reset", root_path, class: "btn btn-warning"  %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+
 <%if !user_signed_in?%>
   <div class="container">
+    <h2>Courses Available</h2>
     <div class="row py-5">
       <% @courses.each do |course| %>
       <div class="col-lg-4 col-md-12">
@@ -26,29 +44,23 @@
     </div>
   </div>
 <%end%>
-
-<%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
-  <%= f.input :level, label: "Level",  collection: $level, as: :check_boxes %>
-  <%= f.input :duration, label: "Duration", collection: $duration, as: :check_boxes %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-  <%= link_to "Reset", root_path  %>
-<% end %>
-
 <%if user_signed_in?%>
   <div class="container">
-    <h2>Your Courses</h2>
-    <div class="row py-5">
-      <% @your_courses.each do |course| %>
-      <div class="col-lg-4 col-md-12">
-        <div class="card-course">
-          <%= render 'shared/card', course: course %>
-        </div>
+    <% if !@your_courses.empty? %>
+      <h2>Your Courses</h2>
+      <div class="row py-5">
+          <% @your_courses.reverse.each do |course| %>
+            <div class="col-lg-4 col-md-12">
+              <div class="card-course">
+                <%= render 'shared/card', course: course %>
+              </div>
+            </div>
+          <% end %>
       </div>
-      <% end %>
-    </div>
-    <h2>Other Courses</h2>
+    <% end %>
+    <h2>Courses Available</h2>
     <div class="row py-5">
-      <% @courses_from_others.each do |course| %>
+      <% @courses_from_others.reverse.each do |course| %>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: course %>
