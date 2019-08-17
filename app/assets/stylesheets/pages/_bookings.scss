@@ -22,3 +22,23 @@
     }
   }
 }
+
+.card-course-infos.booking-card {
+  flex-direction: column;
+
+  .booking-info {
+    & > p {
+      padding: 3px 0;
+      font-size: 1rem;
+    }
+  }
+
+  .edit-options {
+    padding: 0;
+    margin-top: 15px;
+  }
+
+  .card-course-title > h2 {
+    max-width: 100%;
+  }
+}
