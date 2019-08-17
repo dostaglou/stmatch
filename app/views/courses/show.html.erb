@@ -16,16 +16,31 @@
       <div class="reviews-container border-top py-4">
   <!-- REVIEW SECTION BELOW -->
         <% if !policy(@course).edit? %>
-          <h3>Review of this course</h3>
+          <h3 class="mb-2">Course reviews</h3>
+          <% if @course.reviews.empty? %>
+          <p>Be the first to leave a review!</p>
+          <% end %>
+
           <% @course.reviews.each do |review| %>
-          <p>Stars: <%=review.stars%>, Content: <%=review.content%><p>
+            <div class="card-review">
+              <% review.stars.times do %>
+                <i class="fas fa-star full"></i>
+              <% end %>
+              <% (5 - review.stars).times do %>
+                <i class="far fa-star empty"></i>
+              <% end %>
+
+              <p class="text-sub"><%= review.user.first_name %> <%= review.user.last_name %></p>
+              <p class="review-content"><%=review.content%></p>
+            </div>
           <%end%>
+
           <%if user_signed_in? and @courses_taken.include?(@course.name)%>
           <div class="form-review">
-            <%= simple_form_for [@course, @review] do |f| %>
+            <%= simple_form_for [@course, @review], html: { class: ' star-rating' } do |f| %>
             <%= f.input :stars, as: :radio_buttons, collection: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], label_method: :second, value_method: :first %>
-            <%= f.input :content, label: false, placeholder: 'Leave a message...'%>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
+            <%= f.input :content, label: false, placeholder: 'Leave a review...'%>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
             <% end %>
           </div>
           <%end%>
