@@ -42,6 +42,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.course_id = params[:course_id]
     @booking.user = current_user
+
     if @booking.save
       redirect_to booking_path(@booking)
     else

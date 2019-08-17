@@ -8,6 +8,7 @@ class Booking < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
   validates :user, :course, :date, :status, presence: true
 
+ 
   include PgSearch
   pg_search_scope :global_search,
     against: [ :status, :location, :date ],

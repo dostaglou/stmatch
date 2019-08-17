@@ -15,6 +15,7 @@ puts "started creating sample"
 User.create!(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
 last_name: Faker::FunnyName.two_word_name.split(' ')[1],
 email: 'test@gmail.com', password: '123123')
+
 10.times do
   user = User.new(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
   last_name: Faker::FunnyName.two_word_name.split(' ')[1],
