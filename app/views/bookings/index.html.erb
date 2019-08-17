@@ -13,12 +13,12 @@
   <% end %>
 
 <!-- teacher bookings -->
-  <% if @teacher_pending.present? && @teacher_confirmed.present? %>
+  <% if @teacher_pending.present? || @teacher_confirmed.present? %>
     <h2 class="border-bottom pb-2 mb-4">Teacher bookings</h2>
 
-    <% @teacher_pending.each do |booking| %>
-    <h1>THESE ARE PENDING</h1>
+    <h2 class="course-status"><i class="fas fa-circle indicator pending"></i>Pending courses</h2>
     <div class="row py-4">
+    <% @teacher_pending.each do |booking| %>
         <div class="col-lg-4 col-md-12">
           <div class="card-course">
             <%= render 'shared/booking_card', booking: booking %>
@@ -27,7 +27,6 @@
             <%#= booking.location%>
           </div>
         </div>
-    </div>
 
 
 
@@ -36,8 +35,9 @@
     <%= button_to 'Deny', booking_path(  booking, booking:{status: "cancelled"}), method: "patch" %>
 
     <% end %>
+    </div>
      <% @teacher_confirmed.each do |booking| %>
-    <h1>THESE ARE CONFIRMED</h1>
+    <h2 class="course-status"><i class="fas fa-circle indicator booked"></i>Confirmed courses</h2>
     <div class="row py-4">
         <div class="col-lg-4 col-md-12">
           <div class="card-course">
