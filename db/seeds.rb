@@ -14,6 +14,7 @@ puts "started creating sample"
 User.create!(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
 last_name: Faker::FunnyName.two_word_name.split(' ')[1],
 email: 'test@gmail.com', password: '123123')
+
 10.times do
   user = User.new(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
   last_name: Faker::FunnyName.two_word_name.split(' ')[1],
@@ -21,7 +22,7 @@ email: 'test@gmail.com', password: '123123')
   user.save!
 end
 10.times do
-  course = Course.new(name: Faker::Educator.course_name, level: ['Beginner','Intermediate','Advanced','Native'].sample, duration: ["20mins","40mins","60mins"].sample, description: Faker::GreekPhilosophers.quote)
+  course = Course.new(name: Faker::Educator.course_name, level_list: ['Beginner','Intermediate','Advanced','Native'].sample, duration_list: [20, 40, 60].sample, description: Faker::GreekPhilosophers.quote)
   course.user = User.all.sample
   course.save!
 end
@@ -33,6 +34,6 @@ end
 end
 puts "finished creating sample"
 
-User.create(first_name: "Jack", last_name: "Cohen", email: "JCohen@gmail.com", password: "123123")
+User.create(first_name: "Kingsley", last_name: "Lau", email: "lau.kingsley@gmail.com", password: "123123")
 
 Course.create(name: "JT", level_list: $level[1], duration_list: $duration[1], description: "I love mos burger, I hate alcohol")
