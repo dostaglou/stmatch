@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Booking.destroy_all if Rails.env.development?
+Review.destroy_all if Rails.env.development?
 Course.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 

@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
     @courses = policy_scope(Course)
     if params[:query].present?
       @courses = policy_scope(Course).joins(:user).global_search(params[:query])
+
     end
 
     if params[:search]
