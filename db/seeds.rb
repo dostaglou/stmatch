@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Booking.destroy_all if Rails.env.development?
+Review.destroy_all if Rails.env.development?
 Course.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
@@ -14,14 +15,16 @@ puts "started creating sample"
 User.create!(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
 last_name: Faker::FunnyName.two_word_name.split(' ')[1],
 email: 'test@gmail.com', password: '123123')
+Course.create!(name: Faker::Educator.course_name, level: ['Beginner', 'Intermediate', 'Advanced', 'Native'].sample, duration: [20, 40, 60].sample, description: Faker::GreekPhilosophers.quote)
 10.times do
   user = User.new(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
   last_name: Faker::FunnyName.two_word_name.split(' ')[1],
   email: Faker::Internet.email, password: '123123')
   user.save!
 end
+# ['Beginner', 'Intermediate', 'Advanced', 'Native'].sample
 10.times do
-  course = Course.new(name: Faker::Educator.course_name, level: ['Beginner','Intermediate','Advanced','Native'].sample, duration: ["20mins","40mins","60mins"].sample, description: Faker::GreekPhilosophers.quote)
+  course = Course.new(name: Faker::Educator.course_name, level: ['Beginner', 'Intermediate', 'Advanced', 'Native'].sample, duration: [20, 40, 60].sample, description: Faker::GreekPhilosophers.quote)
   course.user = User.all.sample
   course.save!
 end
