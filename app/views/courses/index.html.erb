@@ -27,6 +27,13 @@
   </div>
 <%end%>
 
+<%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
+  <%= f.input :level, label: "Level",  collection: $level, as: :check_boxes %>
+  <%= f.input :duration, label: "Duration", collection: $duration, as: :check_boxes %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+  <%= link_to "Reset", root_path  %>
+<% end %>
+
 <%if user_signed_in?%>
   <div class="container">
     <h2>Your Courses</h2>

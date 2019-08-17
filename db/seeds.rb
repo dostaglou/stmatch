@@ -14,7 +14,7 @@ puts "started creating sample"
 User.create!(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
 last_name: Faker::FunnyName.two_word_name.split(' ')[1],
 email: 'test@gmail.com', password: '123123')
-10.times do 
+10.times do
   user = User.new(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
   last_name: Faker::FunnyName.two_word_name.split(' ')[1],
   email: Faker::Internet.email, password: '123123')
@@ -32,3 +32,7 @@ end
   booking.save!
 end
 puts "finished creating sample"
+
+User.create(first_name: "Jack", last_name: "Cohen", email: "JCohen@gmail.com", password: "123123")
+
+Course.create(name: "JT", level_list: $level[1], duration_list: $duration[1], description: "I love mos burger, I hate alcohol")
