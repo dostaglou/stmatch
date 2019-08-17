@@ -13,8 +13,9 @@
   </div>
 </div>
 
-<div class= "tag-form d-flex container" style="width:80%; justify-content: center;margin: 0 auto;">
-<%= simple_form_for :search, html: {class:"w-100"},url: root_path, method: "GET" do |f| %>
+<div class= "tag-form p-3 d-flex container course-filter">
+  <h3>Filter courses</h3>
+  <%= simple_form_for :search, html: {class:"w-100"},url: root_path, method: "GET" do |f| %>
   <div class="d-flex justify-content-between">
     <div>
       <%= f.input :level, inline_label: "Level", collection: $level, as: :check_boxes, wrapper: :vertical_collection_inline  %>
@@ -24,8 +25,8 @@
     </div>
   </div>
   <div class="d-flex flex-row-reverse">
-  <%= link_to "Reset", root_path, class: "btn btn-warning"  %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
+  <%= f.submit "Search", class: "btn btn-sm btn-primary" %>
+  <%= link_to "Reset", root_path, class: "btn btn-sm btn-secondary mr-3"  %>
   </div>
 <% end %>
 </div>
