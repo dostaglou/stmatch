@@ -9,7 +9,7 @@ class Course < ApplicationRecord
   include PgSearch
   multisearchable against: [ :name, :level, :description ]
 
-  # acts_as_taggable_on :level, :duration
+  acts_as_taggable_on :level, :duration
 
   $level = ["Beginner", "Intermediate", "Advanced", "Native"]
   $duration = [20, 40, 60, 80, 100, 120, 140, 160, 180]

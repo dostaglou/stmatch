@@ -9,10 +9,10 @@
       </h2>
     </div>
     <div class="card-course-detail">
-      <i class="fas fa-clock"></i> <%= course.duration  %>
+      <i class="fas fa-clock"></i> <%= course.duration_list.first  %>
     </div>
     <div class="card-course-detail level">
-      <%= course.level %>
+      <%= course.level.first %>
     </div>
     <p><%= course.description %></p>
   </div>
