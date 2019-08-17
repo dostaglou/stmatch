@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :course
   has_one :teacher, through: :course, source: :user
-  geocoded_by :address
+  geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   validates :user, :course, :date, :location, :status, presence: true
   include PgSearch

@@ -6,11 +6,12 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    if record.user == current_user || record.course.user == current_user
-      return true
-    else
-      return false
-    end
+    # if record.user == user || record.course.user == user
+    #   return true
+    # else
+    #   return false
+    # end
+    true
   end
 
   def create?
