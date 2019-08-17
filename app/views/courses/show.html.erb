@@ -5,18 +5,6 @@
   </div>
 </div>
 
-<!-- THIS LOGIC BELOW IS NEEDED
-      IT PREVENTS USERS FROM EDITING AND DESTROYING
-      ENTRIES THAT AREN'T THEIRS -->
-<% if policy(@course).edit? %>
-  <%= link_to "EDIT ME", edit_course_path(@course), class:"btn btn-warning" %>
-  <br>
-  <br>
-  <%= link_to "Delete Course?", course_path(@course), method: :delete, class:"btn btn-danger"%>
-<% end %>
-
-<!-- Please intergrate the above into the COURSE card -->
-
 <div class="container course">
   <div class="row py-5">
     <div class="col-lg-8 col-md-12">
@@ -45,15 +33,24 @@
       </div>
     </div>
     <!-- BELOW IS THE SIGN UP FORM -->
-    <% if !policy(@course).edit? %>
     <div class="col-lg-4 col-md-12">
-      <div class="form-container">
-      <h2>Book this course</h2>
-      <p>Enter a time to meet with your teacher</p>
-        <%= render './bookings/form' %>
+    <% if !policy(@course).edit? %>
+        <div class="form-container">
+        <h2>Book this course</h2>
+        <p>Enter a time and place to meet with you teacher</p>
+          <%= render './bookings/form' %>
+        </div>
+    <% else %>
+      <div class="edit-options">
+        <%= link_to edit_course_path(@course) do %>
+          <i class="fas fa-edit edit"></i>
+        <% end %>
+        <%= link_to course_path(@course), method: :delete do %>
+          <i class="fas fa-times delete"></i>
+        <% end %>
       </div>
-    </div>
     <% end %>
+    </div>
   </div>
 </div>
 
