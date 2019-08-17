@@ -1,4 +1,4 @@
-<div class="banner secondary" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(<%= image_path('banner-home.jpg') %>);">
+<div class="banner secondary" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url(<%= cl_image_path @course.photo, height: 300, width: 1200, crop: :fill %>);">
   <!-- ^^ INSERT COURSE IMAGE ^^ -->
   <div class="container">
     <h1><%= @course.name %></h1>

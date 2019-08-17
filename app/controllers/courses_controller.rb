@@ -92,7 +92,8 @@ class CoursesController < ApplicationController
                                     :duration_list,
                                     :description,
                                     :location,
-                                    :price
+                                    :price,
+                                    :photo
                                   )
   end
 end

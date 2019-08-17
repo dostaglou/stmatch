@@ -11,6 +11,10 @@ Review.destroy_all if Rails.env.development?
 Course.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
+# image_array = ["images/adult-art-asia-1498273.jpg", "images/alphabet-class-conceptual-301926.jpg",
+#   "images/banner-home.jpg", "images/banter-snaps-2DIjQL_e6hQ-unsplash.jpg",
+#   "images/mihai-surdu-8H9ph_Jp3hA-unsplash.jpg", "images/trung-thanh-LgdDeuBcgIY-unsplash.jpg"
+# ]
 puts "started creating sample"
 User.create!(first_name: "Dillon",
 last_name: "Wyatt",
