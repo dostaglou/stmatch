@@ -20,19 +20,19 @@
     <div class="row py-4">
     <% @teacher_pending.each do |booking| %>
         <div class="col-lg-4 col-md-12">
-          <div class="card-course">
-            <%= render 'shared/booking_card', booking: booking %>
-            <span class="card-date"><%= booking.date.strftime("%a %d %b")
-           %></span>
-            <%#= booking.location%>
-          </div>
+        <div class="confirm-btn d-flex justify-content-around mb-4">
+          <%= button_to 'Confirm', booking_path(  booking, booking:{status: "confirmed"}), class: 'btn btn-primary', method: "patch" %>
+          <%= button_to 'Deny', booking_path(  booking, booking:{status: "cancelled"}), class: 'btn btn-danger', method: "patch" %>
         </div>
+        <div class="card-course">
+          <%= render 'shared/booking_card', booking: booking %>
+          <span class="card-date"><%= booking.date.strftime("%a %d %b")
+         %></span>
+        </div>
+      </div>
 
 
 
-    <%= button_to 'Confirm', booking_path(  booking, booking:{status: "confirmed"}), method: "patch" %>
-
-    <%= button_to 'Deny', booking_path(  booking, booking:{status: "cancelled"}), method: "patch" %>
 
     <% end %>
     </div>
@@ -44,7 +44,6 @@
             <%= render 'shared/booking_card', booking: booking %>
             <span class="card-date"><%= booking.date.strftime("%a %d %b")
            %></span>
-            <%#= booking.location%>
           </div>
         </div>
     </div>
@@ -65,7 +64,6 @@
             <%= render 'shared/booking_card', booking: booking %>
             <span class="card-date"><%= booking.date.strftime("%a %d %b")
            %></span>
-            <%#= booking.location%>
           </div>
         </div>
       <%end%>
@@ -81,7 +79,6 @@
             <%= render 'shared/booking_card', booking: booking %>
             <span class="card-date"><%= booking.date.strftime("%a %d %b")
            %></span>
-            <%#= booking.location%>
           </div>
         </div>
       <%end%>
@@ -97,7 +94,6 @@
             <%= render 'shared/booking_card', booking: booking %>
             <span class="card-date"><%= booking.date.strftime("%a %d %b")
            %></span>
-            <%#= booking.location%>
           </div>
         </div>
       <%end%>
