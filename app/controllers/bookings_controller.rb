@@ -4,13 +4,6 @@ class BookingsController < ApplicationController
   def index
 
     if params[:query].present?
-      # sql_query = " \
-      #   courses.name @@ :query \
-      #   OR courses.level @@ :query \
-      #   OR courses.description @@ :query \
-      #   OR users.first_name @@ :query \
-      #   OR users.last_name @@ :query \
-      # "
       @bookings = policy_scope(Booking).joins(:course).joins(:user).global_search(params[:query])
       # .where(sql_query, query: "%#{params[:query]}%")
     else
@@ -47,9 +40,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(set_booking_params)
     authorize @booking
-    # @booking.course_id = params[:course_id]
+    @booking.course_id = params[:course_id]
     @booking.user = current_user
-
     if @booking.save
       redirect_to booking_path(@booking)
     else
