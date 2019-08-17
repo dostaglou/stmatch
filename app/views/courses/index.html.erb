@@ -36,9 +36,9 @@
 
 <%if user_signed_in?%>
   <div class="container">
-    <h2>Your Courses</h2>
+    <h2>Other Courses</h2>
     <div class="row py-5">
-      <% @your_courses.each do |course| %>
+      <% @courses_from_others.reverse.each do |course| %>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: course %>
@@ -46,9 +46,9 @@
       </div>
       <% end %>
     </div>
-    <h2>Other Courses</h2>
+    <h2>Your Courses</h2>
     <div class="row py-5">
-      <% @courses_from_others.each do |course| %>
+      <% @your_courses.reverse.each do |course| %>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: course %>
