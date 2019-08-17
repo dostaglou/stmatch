@@ -14,4 +14,28 @@
   .navbar-brand img {
     width: 40px;
   }
+
+  form {
+    align-self: center;
+  }
+
+  .search {
+    height: 30px;
+  }
+
+  input:not(.btn) {
+    height: 30px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    padding: 0 10px;
+  }
+
+  .nav-link {
+    transition: all 0.2s ease-in;
+    &:hover {
+      color: $blue !important;
+    }
+  }
 }
