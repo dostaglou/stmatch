@@ -29,7 +29,7 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   position: sticky;
-  top: 30px;
+  top: 80px;
 }
 
 .container.course {
@@ -46,6 +46,15 @@
     transition: $transition;
     &:hover {
       opacity: 0.8;
+    }
+  }
+}
+
+.form-review {
+  .review_stars {
+    display: flex;
+    & > div:not(:last-of-type) {
+      margin-right: 8px;
     }
   }
 }
