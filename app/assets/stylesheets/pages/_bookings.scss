@@ -26,6 +26,10 @@
 .card-course-infos.booking-card {
   flex-direction: column;
 
+  & > div {
+    width: 100%;
+  }
+
   .booking-info {
     & > p {
       padding: 3px 0;
