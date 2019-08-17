@@ -9,7 +9,8 @@ class CoursesController < ApplicationController
 
     if params[:search]
       @filter = params[:search]["level"].concat(params[:search]["duration"]).flatten.reject(&:blank?)
-      @courses = @filter.empty? ? Course.all : Course.all.tagged_with(@filter, any: true)
+
+      @courses = @filter.empty? ? Course.all : Course.tagged_with(@filter)
     end
 
     if user_signed_in?
