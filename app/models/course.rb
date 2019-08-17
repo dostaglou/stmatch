@@ -16,8 +16,10 @@ class Course < ApplicationRecord
   multisearchable against: [ :name, :level, :description ]
 
   pg_search_scope :global_search,
-    against: [ :name, :level, :duration, :description, :location, :price ],
+    against: [ :name, :description, :location, :price ],
     associated_against: {
+      level: [:name],
+      duration: [:name],
       user: [:first_name, :last_name]
     },
     using: {

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Booking.destroy_all if Rails.env.development?
+Review.destroy_all if Rails.env.development?
 Course.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
@@ -21,6 +22,7 @@ email: 'test@gmail.com', password: '123123')
   email: Faker::Internet.email, password: '123123')
   user.save!
 end
+# ['Beginner', 'Intermediate', 'Advanced', 'Native'].sample
 10.times do
   course = Course.new(name: Faker::Educator.course_name, level_list: ['Beginner','Intermediate','Advanced','Native'].sample, duration_list: [20, 40, 60].sample, location: ["Tokyo", "Osaka", "Nagoya"].sample, description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida purus a lectus auctor, eget sagittis odio scelerisque. Ut vehicula lectus sit amet semper maximus. Curabitur at massa semper, dictum risus ut, venenatis dolor. In at risus et nisl vehicula tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus, metus nec dictum scelerisque, lectus turpis porttitor purus, vel efficitur augue tortor in sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Interdum et malesuada fames ac ante ipsum primis in faucibus.
