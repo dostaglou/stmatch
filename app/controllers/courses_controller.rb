@@ -12,7 +12,6 @@ class CoursesController < ApplicationController
       @courses = @filter.empty? ? Course.all : Course.all.tagged_with(@filter, any: true)
     end
 
-
     if user_signed_in?
       @user = current_user
       @your_courses = current_user.courses
