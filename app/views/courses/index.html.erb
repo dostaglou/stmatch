@@ -13,22 +13,8 @@
   </div>
 </div>
 
-<%if !user_signed_in?%>
-  <div class="container">
-    <div class="row py-5">
-      <% @courses.each do |course| %>
-      <div class="col-lg-4 col-md-12">
-        <div class="card-course">
-          <%= render 'shared/card', course: course %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-<%end%>
-
 <div class= "tag-form d-flex container" style="width:80%; justify-content: center;margin: 0 auto;">
-<%= simple_form_for :search, html: {class:"w-100"} ,url: root_path, method: "GET" do |f| %>
+<%= simple_form_for :search, html: {class:"w-100"},url: root_path, method: "GET" do |f| %>
   <div class="d-flex justify-content-between">
     <div>
       <%= f.input :level, inline_label: "Level", collection: $level, as: :check_boxes, wrapper: :vertical_collection_inline  %>
@@ -43,11 +29,12 @@
   </div>
 <% end %>
 </div>
-<%if user_signed_in?%>
+
+<%if !user_signed_in?%>
   <div class="container">
-    <h2>Other Courses</h2>
+    <h2>Courses Available</h2>
     <div class="row py-5">
-      <% @courses_from_others.reverse.each do |course| %>
+      <% @courses.each do |course| %>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: course %>
@@ -55,9 +42,25 @@
       </div>
       <% end %>
     </div>
-    <h2>Your Courses</h2>
+  </div>
+<%end%>
+<%if user_signed_in?%>
+  <div class="container">
+    <% if !@your_courses.empty? %>
+      <h2>Your Courses</h2>
+      <div class="row py-5">
+          <% @your_courses.reverse.each do |course| %>
+            <div class="col-lg-4 col-md-12">
+              <div class="card-course">
+                <%= render 'shared/card', course: course %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+    <h2>Courses Available</h2>
     <div class="row py-5">
-      <% @your_courses.reverse.each do |course| %>
+      <% @courses_from_others.reverse.each do |course| %>
       <div class="col-lg-4 col-md-12">
         <div class="card-course">
           <%= render 'shared/card', course: course %>
