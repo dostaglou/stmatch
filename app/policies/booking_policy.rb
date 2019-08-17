@@ -6,10 +6,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    if record.user == user || record.course.user == user
+    if record.user == current_user || record.course.user == current_user
       return true
     else
-      redirect_to root_path
+      return false
     end
   end
 

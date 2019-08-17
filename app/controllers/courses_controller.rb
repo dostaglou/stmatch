@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @booking = Booking.new
-    authorize @booking
+    # authorize @booking
     authorize @course
     @course_geo = Course.geocoded
     @courses_taken = []
