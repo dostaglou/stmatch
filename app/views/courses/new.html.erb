@@ -9,7 +9,8 @@
     <%= f.input :description, placeholder: "Enter course description." %>
     <%= f.input :location, placeholder: "Where would you like to teach?" %>
     <%= f.input :price, placeholder: "Price per hour in 円" %>
-
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <div class="d-flex justify-content-between m-2 mt-4">
 
     <%= link_to "Return Home", root_path, class:"btn" %>

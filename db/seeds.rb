@@ -11,6 +11,10 @@ Review.destroy_all if Rails.env.development?
 Course.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 
+# image_array = ["images/adult-art-asia-1498273.jpg", "images/alphabet-class-conceptual-301926.jpg",
+#   "images/banner-home.jpg", "images/banter-snaps-2DIjQL_e6hQ-unsplash.jpg",
+#   "images/mihai-surdu-8H9ph_Jp3hA-unsplash.jpg", "images/trung-thanh-LgdDeuBcgIY-unsplash.jpg"
+# ]
 puts "started creating sample"
 User.create!(first_name: Faker::FunnyName.two_word_name.split(' ')[0],
 last_name: Faker::FunnyName.two_word_name.split(' ')[1],
@@ -24,7 +28,8 @@ email: 'test@gmail.com', password: '123123')
 end
 # ['Beginner', 'Intermediate', 'Advanced', 'Native'].sample
 10.times do
-  course = Course.new(name: Faker::Educator.course_name, level_list: ['Beginner','Intermediate','Advanced','Native'].sample, duration_list: [20, 40, 60].sample, location: ["Tokyo", "Osaka", "Nagoya"].sample, price: [1000, 2000, 3000].sample, description:
+  course = Course.new(name: Faker::Educator.course_name, level_list: ['Beginner','Intermediate','Advanced','Native'].sample, duration_list: [20, 40, 60].sample, location: ["Tokyo", "Osaka", "Nagoya"].sample, price: [1000, 2000, 3000].sample,
+  description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida purus a lectus auctor, eget sagittis odio scelerisque. Ut vehicula lectus sit amet semper maximus. Curabitur at massa semper, dictum risus ut, venenatis dolor. In at risus et nisl vehicula tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus, metus nec dictum scelerisque, lectus turpis porttitor purus, vel efficitur augue tortor in sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
 Proin cursus et neque sit amet efficitur. Curabitur vitae sapien sagittis, interdum odio non, volutpat diam. Cras id molestie augue. Curabitur ex nisl, efficitur sit amet pretium eu, dictum eget enim. In aliquet fringilla erat at interdum. Aenean venenatis erat placerat odio rutrum tincidunt. Ut nec justo ac risus tincidunt faucibus. Integer nec ullamcorper lectus, ut auctor ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec efficitur a purus a ornare. Suspendisse vel odio sed lorem placerat maximus nec sed elit. Morbi placerat nisl eget nunc placerat fringilla. Sed non massa eget neque malesuada blandit. Curabitur a diam pellentesque, elementum metus eget, volutpat tellus. Vestibulum id consectetur velit.
